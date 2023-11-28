@@ -1,6 +1,6 @@
 
 :root {
-    --blue-login: rgba(52,110,253,255);
+    --blue-login-signup: rgba(52,110,253,255);
     --blue--facebook: rgba(55,103,184,255);
     --white-color: white;
     --gray-color1: rgb(165, 165, 165);
@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: var(--blue-login);
+    background-color: var(--blue-login-signup);
 }
 
 
@@ -43,8 +43,8 @@ a{
     text-align: center;
 }
 
-.login {
-    background-color: var(--blue-login);
+.login-signup {
+    background-color: var(--blue-login-signup);
     color: var(--white-color);
 }
 
