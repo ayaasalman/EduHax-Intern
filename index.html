@@ -4,8 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+
+
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq@n4Mqa/HGKIhSKIHEL5AyhkYV8159U5AR6csBvApHHN1/vI1Bx" crossorigin="anonymous">
+
+    <!-- JS link for bootstrap-->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEk039Gagi7vIsFØjrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+        <!-- css link -->
+        <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-    
+    <div class="container">
+        <div class="row">
+            <form action="" method="post" class="col-3 col-xl-10 col-sm-8 col-xxl-4">
+                <h3>Login</h3>
+                <br>
+                <div class="form-floating">
+                    <input type="email" name="email" id="email" placeholder="Email" class="form-control">
+                    <label for="email">Email</label>
+                </div>
+                <br>
+                <div class="form-floating">
+                    <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+                    <label for="password">Password</label>
+                </div>
+                <br>
+                <a href="" class="text">Forgot password?</a>
+                <br>
+                <input type="button" value="Login" class="button login">
+                <br><br>
+                <p class="text">Don't have an account? <a href="">Signup</a> </p>
+                
+                <!-- hr with or -->
+                <div class="separator">Or</div>
+
+                <br>
+
+                <input type="button" value="Login with Facebook" class="button facebook">
+
+                <br><br>
+        
+                <input type="button" value="Login with Google" class="button google">
+
+            </form>
+        </div>
+    </div>
 </body>
 </html>
