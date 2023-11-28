@@ -16,7 +16,7 @@ body {
 .row > form {
     background-color: white;
     padding: 2em;
-    width: 40%;
+    /*width: 40%;*/
     margin: 5% auto;
     border-radius: 10px;
     color: var(--gray-color1);
@@ -35,18 +35,12 @@ h3 {
 a{
     text-decoration: none;
     color: var(--a-color);
+
 }
 
 .text {
     display: block;
     text-align: center;
-}
-
-.button {
-    width: 100%;
-    border: 0;
-    border-radius: 5px;
-    height: 50px;
 }
 
 .login {
@@ -90,3 +84,16 @@ a{
   .separator:not(:empty)::after {
     margin-left: .25em;
   }
+
+  button {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .logo {
+    float: left;
+    padding-left: 10px;
+  } 
