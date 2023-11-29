@@ -20,18 +20,22 @@
 <body>
     <div class="container">
         <div class="row">
-            <form action="" method="post" class="col-xxl-6 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-11">
+            <!-- novalidate attribute to use my validations not the default -->
+            <!-- change method to post -->
+            <form action="" method="get" onsubmit="return validate()" novalidate class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-11">
                 <h3>Login</h3>
                 <br>
                 <div class="form-floating">
                     <input type="email" name="email" id="email" placeholder="Email" class="form-control">
                     <label for="email">Email</label>
                 </div>
+                <span id="emailError" class="error"></span>
                 <br>
                 <div class="form-floating">
                     <input type="password" name="password" id="password" placeholder="Password" class="form-control">
                     <label for="password">Password</label>
                 </div>
+                <span id="passwordError" class="error"></span>
                 <br>
                 <a href="" class="text">Forgot password?</a>
                 <br>
@@ -52,5 +56,37 @@
             </form>
         </div>
     </div>
+
+    <!-- script -->
+    <script>
+        function validate() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('passwordError').innerText = '';
+
+            var isValid = true;
+
+            // validate email
+            if (email.trim() === '') {
+                document.getElementById('emailError').innerText = 'Email is required.';
+                isValid = false;
+            } else if (email.indexOf('@') == -1) {
+                document.getElementById('emailError').innerText = 'Please enter a valid email.';
+                isValid = false;
+            }
+
+            // validate password
+            if (password.trim() === '') {
+                document.getElementById('passwordError').innerText = 'Password is required.';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+    </script>
+
 </body>
 </html>

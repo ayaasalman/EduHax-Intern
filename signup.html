@@ -20,28 +20,32 @@
 <body>
     <div class="container">
         <div class="row">
-            <form action="" method="post" class="col-xxl-6 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-11">
+            <!-- novalidate attribute to use my validations not the default -->
+            <!-- change method to post -->
+            <form action="" method="get" onsubmit="return validate()" novalidate class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-11">
                 <h3>Signup</h3>
                 <br>
                 <div class="form-floating">
                     <input type="email" name="email" id="email" placeholder="Email" class="form-control">
                     <label for="email">Email</label>
                 </div>
+                <span id="emailError" class="error"></span>
                 <br>
                 <div class="form-floating">
                     <input type="password" name="password" id="password" placeholder="Password" class="form-control">
                     <label for="password">Create password</label>
                 </div>
+                <span id="passwordError" class="error"></span>
                 <br>
                 <div class="form-floating">
-                    <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+                    <input type="password" name="password" id="conf-password" placeholder="Password" class="form-control">
                     <label for="password">Confirm password</label>
                 </div>
-            
+                <span id="passwordConfError" class="error"></span>
                 <br>
-                <button class="login-signup">Sign up</button>
+                <button class="login-signup" type="submit">Sign up</button>
                 <br><br>
-                <p class="text">Already have an account? <a href="/login.html">Login</a> </p>
+                <p class="text">Already have an account? <a href="/login.html">Login</a></p>
                 
                 <!-- hr with or -->
                 <div class="separator">Or</div>
@@ -56,5 +60,61 @@
             </form>
         </div>
     </div>
+
+    <!-- script -->
+    <script>
+        function validate() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confPassword = document.getElementById('conf-password').value;
+
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('passwordError').innerText = '';
+            document.getElementById('passwordConfError').innerText = '';
+
+            var isValid = true;
+
+            // validate email
+            if (email.trim() === '') {
+                document.getElementById('emailError').innerText = 'Email is required.';
+                isValid = false;
+            } else if (email.indexOf('@') == -1) {
+                document.getElementById('emailError').innerText = 'Please enter a valid email.';
+                isValid = false;
+            } 
+
+            // validate password
+            if (password.trim() === '') {
+                document.getElementById('passwordError').innerText = 'Password is required.';
+                isValid = false;
+            } else if (password.length < 8) {
+                document.getElementById('passwordError').innerText = 'Password must be at least 8 characters. Password must contain upper case and lower case letters, numbers, and special characters.';
+                isValid = false;
+            } else if (!/[a-z]/.test(password)) {
+                document.getElementById('passwordError').innerText = 'Password must contain upper case and lower case letters, numbers, and special characters.';
+                isValid = false;
+            } else if (!/[A-Z]/.test(password)) {
+                document.getElementById('passwordError').innerText = 'Password must contain upper case and lower case letters, numbers, and special characters.';
+                isValid = false;
+                
+            } else if (!/[0-9]/.test(password)) {
+                document.getElementById('passwordError').innerText = 'Password must contain upper case and lower case letters, numbers, and special characters.';
+                isValid = false;
+            } else if (!/[^a-zA-Z0-9]/.test(password)) {
+                document.getElementById('passwordError').innerText = 'Password must contain special characters.';
+                isValid = false;
+            }
+
+            // validate confirmation password
+            if (password !== confPassword) {
+                document.getElementById('passwordConfError').innerText = 'Please confirm your password.';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+    </script>
+  
 </body>
 </html>
