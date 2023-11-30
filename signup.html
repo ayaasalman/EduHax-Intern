@@ -23,7 +23,7 @@
             <!-- novalidate attribute to use my validations not the default -->
             <!-- change method to post -->
 
-            <form action="#" method="get" novalidate onsubmit="return validate()" class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-11">
+            <form action="#" method="get" novalidate class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-11">
                 <h3>Signup</h3>
                 <br>
                 <div class="form-floating">
@@ -32,9 +32,9 @@
                 </div>
                 <span id="emailError" class="error"></span>
                 <br>
-                <div class="form-floating">
+                <div class="form-floating">     
                     <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-                    <label for="password">Create password</label>
+                    <label for="password">Create password</label>  
                 </div>
                 <span id="passwordError" class="error"></span>
                 <br>
@@ -44,7 +44,7 @@
                 </div>
                 <span id="passwordConfError" class="error"></span>
                 <br>
-                <button class="login-signup" type="submit" id="signup-btn">Sign up</button>
+                <button class="login-signup" type="submit" id="signup-btn" onclick="return validate()">Sign up</button>
                 <br><br>
                 <p class="text">Already have an account? <a href="/login.html">Login</a></p>
                 
@@ -52,19 +52,20 @@
                 <div class="separator">Or</div>
 
                 <br>
-
-                <button class="facebook"> <img src="/images/facebook_logo.png" alt="" class="logo"> Login with Facebook</button>
-
+                <a href="https://www.facebook.com/" target="_blank">
+                <button class="facebook"> <img src="/images/facebook_logo.png" alt="" class="logo">Login with Facebook</button>
+                </a>
                 <br><br>
-        
-                <button class="google"> <img src="/images/google_logo.png" alt="" class="logo"> Login with Google</button>
+                <a href="https://accounts.google.com/" target="_blank">
+                <button class="google"> <img src="/images/google_logo.png" alt="" class="logo">Login with Google</button>
+                </a>
             </form>
         </div>
     </div>
 
     <!-- input validation -->
-
     <script>
+
         function validate() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
@@ -138,7 +139,7 @@
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    
+
     const auth = getAuth();
 
      //----- New Registration code start    

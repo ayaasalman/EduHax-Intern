@@ -48,11 +48,14 @@
 
                 <br>
 
-                <button class="facebook"> <img src="/images/facebook_logo.png" alt="" class="logo"> Login with Facebook</button>
-
+                <a href="https://www.facebook.com/">
+                <button class="facebook"> <img src="/images/facebook_logo.png" alt="" class="logo">Login with Facebook</button>
+                </a>
                 <br><br>
         
-                <button class="google"> <img src="/images/google_logo.png" alt="" class="logo"> Login with Google</button>
+                <a href="https://accounts.google.com/">
+                <button class="google"> <img src="/images/google_logo.png" alt="" class="logo">Login with Google</button>
+                </a>
             </form>
         </div>
     </div>
@@ -133,6 +136,22 @@
         alert(errorMessage);
         });		  		  
     });
+
+    //----- session management
+    // Revoke all refresh tokens for a specified user for whatever reason.
+    // Retrieve the timestamp of the revocation, in seconds since the epoch.
+    getAuth()
+    .revokeRefreshTokens(uid)
+    .then(() => {
+        return getAuth().getUser(uid);
+    })
+    .then((userRecord) => {
+        return new Date(userRecord.tokensValidAfterTime).getTime() / 1000;
+    })
+    .then((timestamp) => {
+        console.log(`Tokens revoked at: ${timestamp}`);
+    });
+
     //----- End
 
     //----- Logout code start	  
