@@ -10,5 +10,6 @@ Notes:
 
  - Due to the lack of time I did not properly modify the google and facebook buttons nor did I put the show and hide icon for the password fields.
 
-    
+ - The login and signup authentication work and here is an example:
+   ![screenshot](Screenshot%202023-11-30%20at%2003.18.32.png)
     
