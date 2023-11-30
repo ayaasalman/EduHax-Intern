@@ -52,18 +52,18 @@
                 <div class="separator">Or</div>
 
                 <br>
-
-                <button class="facebook"> <img src="/images/facebook_logo.png" alt="" class="logo"> Login with Facebook</button>
-
+                <a href="https://www.facebook.com/">
+                <button class="facebook"> <img src="/images/facebook_logo.png" alt="" class="logo">Login with Facebook</button>
+                </a>
                 <br><br>
-        
-                <button class="google"> <img src="/images/google_logo.png" alt="" class="logo"> Login with Google</button>
+                <a href="https://accounts.google.com/">
+                <button class="google"> <img src="/images/google_logo.png" alt="" class="logo">Login with Google</button>
+                </a>
             </form>
         </div>
     </div>
 
     <!-- input validation -->
-
     <script>
         function validate() {
             var email = document.getElementById('email').value;
@@ -138,7 +138,7 @@
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    
+
     const auth = getAuth();
 
      //----- New Registration code start    
